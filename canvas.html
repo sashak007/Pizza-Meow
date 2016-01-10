@@ -2,6 +2,9 @@
 	<head>
 		<title>1st Canvas Tutorial</title>
 		<link rel="stylesheet" type="css/text" href="./css/main.css" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:800' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css">
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&amp;skin=sunburst"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -10,9 +13,70 @@
 				<img src="img/12.jpg"/>
 			</canvas>
 		</div>
-		<script src="js/TweenLite.min.js"></script>
-		<script src="js/EasePack.min.js"></script>
-		<script src="js/rAF.js"></script>
-		<script src="js/main.js"></script>
+
+		<section id="review">
+			<h1>Welcome!</h1>
+			<p>Hello, hello! I'm not sure how you found your way to this part of the internet but welcome! This was my first stab at canvas based off a tutorial from the folks at <a href="tympanus.net/codrops">codrops</a>, referenced from one of the organizers of the <a href="http://chicagocamps.org/events/">Prototype, Process, &amp; Play</a> conference.</p>
+			<p> I had a lot of fun running through this exercise. This is definitely not how the end-product of the codrops tutorial looked like, I just wanted to get a feel for the fundamentals so I deviated from the path and decided to add in a few of my favorite things: pizza, cats, gradients and space. :D</p>
+			<p>I did notice an inconsistency in the source code that I grabbed from the site. The section where you grab the five closest surrounding points had the following:</p> 
+
+        <pre class="prettyprint linenums:35">
+          <code>for(var i = 0; i &lt; points.length; i++) {
+              var closest = [];
+              var p1 = points[i];
+              for(var j = 0; j &lt; points.length; j++) {
+                var p2 = points[j]
+                if(!(p1 == p2)) {
+                  var placed = false;
+
+                  for(var k = 0; k &lt; 5; k++) {
+                    if(!placed) {
+                      if(closest[k] == undefined) {
+                        closest[k] = p2;
+                        placed = true;
+                      }
+                    }
+                  }
+
+                  for(var k = 0; k &lt; 5; k++) {
+                    if(!placed) {
+                      if(getDistance(p1, p2) &lt; getDistance(p1, closest[k])) {
+                        closest[k] = p2;
+                        placed = true;
+                      }
+                    }
+                  }
+                }
+              }
+            }</code>
+				</pre>
+
+      <p>This would work to get the five closest points if all the coordinates in the points array were in order. If the coordinates are unordered you run into the possibility of replacing the first surrounding point that may not be the farthest out of the recorded five. For example, if we were traversing through an array with the following coordinates:</p>
+        <span class="code">[
+          {x:0,y:0},
+          {x:2,y:3},
+          {x:4,y:5},
+          {x:5,y:6},
+          {x:7,y:16},
+          {x:4,y:4},
+          {x:0,y:1}
+          ]</span>
+      <p>comparing the surrounding points to the coordinate {x:5, y:5}, with the above code we would have filled <span class="code">closest</span> with the first five points. Now when we are comparing the remaining points to see if they are closer we would actually bump out <span class="code">closest[0]</span> when we should actually bump out <span class="code">closest[4]</span>. One way to solve this would be to track the comparison, another would be to sort the points array before we do any comparisons for proximity.</p>
+
+      <p>For the functionality of the code it doesn't really matter, it won't break anything and it doesn't detract from the aesthetic but just something to be aware of. Maybe naming the array differently may also remove any assumptions of what exactly it holds.</p>
+
+      <div id="social">
+        <p>Find me on the web:</p>
+      
+        <a href="https://twitter.com/sashak007"><img src="img/social/twitter-icon.png"></a>
+        <a href="https://github.com/sashak007"><img src="img/social/github-icon.png"></a>
+        <a href="https://medium.com/@sashak007"><img src="img/social/medium-icon.png"></a>
+      </div>
+
+		</section>
+		<script type="text/javascript" src="js/TweenLite.min.js"></script>
+		<script type="text/javascript" src="js/EasePack.min.js"></script>
+		<script type="text/javascript" src="js/rAF.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>

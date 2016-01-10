@@ -4,4 +4,46 @@
 
 #container{
 	background-image: url('../img/galaxy-cosmic-space.jpg');
+	position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
+  background-color: #323232;
 }
+
+section#review{
+	height: 100vh;
+	width: 70%;
+	margin: 5% auto 0 auto;
+}
+	section#review h1{
+		font-family: Raleway, 'san-serif';
+		font-size: 4.2em;
+		letter-spacing: 0.1em;
+		line-height: 1.25em;
+		text-transform: uppercase;
+		text-align: center;
+		text-shadow: 2px 1px rgba(226,226,226,.5);
+		margin-bottom: 5%;
+	}
+
+	section#review p{
+		font-family: 'Open Sans', Helvetica, serif;
+		margin-bottom: 10px;
+	}
+	section#review span.code{
+		font-family: monospace;
+		background-color: #e1e1e1;
+	}
+
+div#social{
+	margin-top: 5%;
+}
+	div#social p{
+		font-style: italic;
+	}
+	div#social img{
+		width: 30px;
+		height: 30px;
+	}
