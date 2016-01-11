@@ -6,11 +6,16 @@
 			headerContainer,
 			focus,
 			points,
-			animateActive = true;
+			animateActive = true,
+			userUpdate	  = [false];
 
 	initHeader();
 	initAnimation();
 	addListeners();
+
+	document.getElementById("surprise").onclick = function userClick() {
+		userUpdate = [true, Math.floor(Math.random() * 4)];
+	}
 
 	function initHeader() {
 		width  											 = window.innerWidth;
@@ -19,7 +24,7 @@
 		headerContainer 						 = document.getElementById('container');
 		canvas 											 = document.getElementById('tutorial');
 		headerContainer.style.height = height+'px';
-		canvas.width          			 = width; //what happens if you do canvas.style.width / canvas.style.height ? 
+		canvas.width          			 = width; 
 		canvas.height         			 = height;
 		ctx 												 = canvas.getContext('2d');
 		points 											 = []
@@ -37,6 +42,7 @@
 		}
 
 		points.sort(function(a,b){return a - b});
+		
 		//Get closest 5 points
 		for(var i = 0; i < points.length; i++) {
 			var focusPoint = points[i],
@@ -135,7 +141,13 @@
 				}
 
 				drawLines(points[i]);
-				drawImg(points[i]);
+				
+				if(userUpdate[0]) {
+					drawImg(points[i], userUpdate[1])
+				} else{
+					drawImg(points[i]);
+				}
+
 			}
 		}
 		requestAnimationFrame(animate);
@@ -163,20 +175,22 @@
 		}
 	}
 
-	function drawImg(point) {
+	function drawImg(point,img) {
 		var imageObj   = new Image(),
-				rand 			 = Math.floor(Math.random() * 4)
 				selectImgs = [
-		'img/cat-donut.png',
-		'img/hipster-dog.png',
 		'img/pizza-cat.png',
+		'img/hipster-dog.png',
+		'img/cat-donut.png',
 		'img/taco-turtle-pizza-cat.png',
 		'img/yu_yu_hakusho.png'
 		];
 
-
-		imageObj.src = selectImgs[2]
-
+		if(img) {
+			imageObj.src = selectImgs[img]
+		}	else{
+			imageObj.src = selectImgs[0]
+		}
+		
 		ctx.drawImage(imageObj, point.x, point.y);
 		ctx.globalAlpha = point.active;
 }

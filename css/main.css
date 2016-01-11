@@ -2,7 +2,7 @@
 	margin: 0;
 }
 
-#container{
+div#container{
 	background-image: url('../img/galaxy-cosmic-space.jpg');
 	position: relative;
   background-position: center center;
@@ -11,6 +11,47 @@
   background-size: cover;
   background-color: #323232;
 }
+	div#container h1{
+		padding-top: 20%; 
+		font-family: Raleway, 'san-serif';
+		font-weight: 800;
+		font-size: 5em;
+		color: white;
+		text-transform: uppercase;
+		text-align: center;	
+		text-shadow: 2px 1px 1px rgba(159,159,159,.5);
+		letter-spacing: 0.1em;
+		line-height: 1.25em;
+	}
+	div#container span#thin{
+		font-weight: 200;
+		color: white;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		line-height: 1.25em;
+	}
+
+	@media only screen and (max-width : 768px) {
+		div#container h1{
+			font-size: 3em;
+		}
+	}
+
+button{
+	position: absolute;
+	bottom: 5%;
+	right: 5%;
+	padding: 0px 10px; 
+	height: 40px;
+	border: 1px solid rgba(226,226,226,.7); 
+	border-radius: 5px;
+	background: #e1e1e1;
+}
+
+canvas#tutorial{
+	position: absolute;
+}
+	
 
 section#review{
 	height: 100vh;
@@ -20,6 +61,7 @@ section#review{
 	section#review h1{
 		font-family: Raleway, 'san-serif';
 		font-size: 4.2em;
+		font-weight: 800;
 		letter-spacing: 0.1em;
 		line-height: 1.25em;
 		text-transform: uppercase;
