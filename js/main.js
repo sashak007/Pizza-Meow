@@ -27,7 +27,7 @@
 		canvas.width          			 = width; 
 		canvas.height         			 = height;
 		ctx 												 = canvas.getContext('2d');
-		points 											 = []
+		points 											 = [];
 
 		for(var x = 0; x < width; x = x + width/5) {
 			for (var y = 0; y < height; y = y +height/5) {
