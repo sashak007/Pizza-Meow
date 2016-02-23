@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>1st Canvas Tutorial</title>
-		<link rel="stylesheet" type="css/text" href="./css/main.css" />
-    <link href='http://fonts.googleapis.com/css?family=Raleway:200,800' rel='stylesheet' type='text/css'>
+    <title>1st Canvas Tutorial</title>
+    <link rel="stylesheet" type="css/text" href="./css/main.css" />
+   <!--  <link href='http://fonts.googleapis.com/css?family=Raleway:200,800' rel='stylesheet' type='text/css'> -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css">
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&amp;skin=sunburst"></script>
-	</head>
-	<body>
-		<div id="container">
-			<canvas id="tutorial">
-				Your browser doesn't support canvas, try a <a href="http://caniuse.com/#search=canvas">supported browser</a> like the latest version of Chrome or Firefox.
-				<img src="img/12.jpg"/>
-			</canvas>
+  </head>
+  <body>
+    <div id="container">
+      <canvas id="tutorial">
+        Your browser doesn't support canvas, try a <a href="http://caniuse.com/#search=canvas">supported browser</a> like the latest version of Chrome or Firefox.
+        <img src="img/12.jpg"/>
+      </canvas>
       <h1 id="title">Pizza <span id="thin">Meow</span></h1>
       <button type="button" id="surprise" onclick="userClick()">Surprise Me!</button>
-		</div>
+    </div>
 
-		<section id="review">
-			<h1>Welcome!</h1>
-			<p>Hello, hello! I'm not sure how you found your way to this part of the internet but welcome! This was my first stab at canvas based off a tutorial from the folks at <a href="http://tympanus.net/codrops">codrops</a>, referenced from one of the organizers of the <a href="http://chicagocamps.org/events/">Prototype, Process, &amp; Play</a> conference.</p>
-			<p> I had a lot of fun running through this exercise. This is definitely not how the end-product of the codrops tutorial looked like, I just wanted to get a feel for the fundamentals so I deviated from the path and decided to add in a few of my favorite things: pizza, cats, gradients and space. :D</p>
-			<p>I did notice an inconsistency in the source code that I grabbed from the site. The section where you grab the five closest surrounding points had the following:</p> 
+    <article id="review">
+      <h1>Welcome!</h1>
+      <p>Hello, hello! I'm not sure how you found your way to this part of the internet but welcome! This was my first stab at canvas based off a tutorial from the folks at <a href="http://tympanus.net/codrops">codrops</a>, referenced from one of the organizers of the <a href="http://chicagocamps.org/events/">Prototype, Process, &amp; Play</a> conference.</p>
+      <p> I had a lot of fun running through this exercise. This is definitely not how the end-product of the codrops tutorial looked like, I just wanted to get a feel for the fundamentals so I deviated from the path and decided to add in a few of my favorite things: pizza, cats, gradients and space. :D</p>
+      <p>I did notice an inconsistency in the source code that I grabbed from the site. The section where you grab the five closest surrounding points had the following:</p> 
 
         <pre class="prettyprint linenums:35">
           <code>for(var i = 0; i &lt; points.length; i++) {
@@ -52,7 +52,7 @@
                 }
               }
             }</code>
-				</pre>
+        </pre>
 
       <p>This would work to get the five closest points if all the coordinates in the points array were in order. If the coordinates are unordered you run into the possibility of replacing the first surrounding point that may not be the farthest out of the recorded five. For example, if we were traversing through an array with the following coordinates:</p>
         <span class="code">[
@@ -76,10 +76,10 @@
         <a href="https://medium.com/@sashak007"><img src="img/social/medium-icon.png"></a>
       </div>
 
-		</section>
-		<script type="text/javascript" src="js/TweenLite.min.js"></script>
-		<script type="text/javascript" src="js/EasePack.min.js"></script>
-		<script type="text/javascript" src="js/rAF.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
-	</body>
+    </article>
+    <script type="text/javascript" src="js/TweenLite.min.js"></script>
+    <script type="text/javascript" src="js/EasePack.min.js"></script>
+    <script type="text/javascript" src="js/rAF.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
 </html>
